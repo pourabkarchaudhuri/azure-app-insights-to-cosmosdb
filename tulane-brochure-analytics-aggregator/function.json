@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "application-insights-tulane/{name}",
+      "connection": "tulanedigcontent_STORAGE"
+    },
+    {
+      "type": "blob",
+      "name": "inputBlob",
+      "path": "application-insights-tulane/{name}",
+      "connection": "tulanedigcontent_STORAGE",
+      "direction": "in"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "outputDocument",
+      "databaseName": "analytics-db",
+      "collectionName": "metrics",
+      "createIfNotExists": true,
+      "connectionStringSetting": "tulaneanalyticsdbs_DOCUMENTDB",
+      "direction": "out"
+    }
+  ]
+}
